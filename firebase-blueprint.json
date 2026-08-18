@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student profile data for Prof IA Mali",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "country": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "level": { "type": "string" },
+        "points": { "type": "number" },
+        "solvedExercisesCount": { "type": "number" },
+        "examsTakenCount": { "type": "number" },
+        "averageGradeOver20": { "type": "number" }
+      },
+      "required": ["uid", "email", "displayName", "country"]
+    },
+    "SolvedExercise": {
+      "title": "SolvedExercise",
+      "description": "Step-by-step solved exercise record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "subject": { "type": "string" },
+        "level": { "type": "string" },
+        "problemStatement": { "type": "string" },
+        "finalAnswer": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["userId", "subject", "problemStatement", "finalAnswer"]
+    },
+    "ExamResult": {
+      "title": "ExamResult",
+      "description": "Mock exam result for student rankings and leaderboards",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "userSchool": { "type": "string" },
+        "subject": { "type": "string" },
+        "level": { "type": "string" },
+        "country": { "type": "string" },
+        "examTitle": { "type": "string" },
+        "gradeOver20": { "type": "number" },
+        "percentage": { "type": "number" },
+        "score": { "type": "number" },
+        "maxScore": { "type": "number" },
+        "mention": { "type": "string" },
+        "timeSpentSeconds": { "type": "number" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["userId", "userName", "subject", "gradeOver20", "country"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Student user profiles"
+    },
+    "/exercises/{exerciseId}": {
+      "schema": "SolvedExercise",
+      "description": "Saved exercises"
+    },
+    "/exam_results/{resultId}": {
+      "schema": "ExamResult",
+      "description": "Mock exam grades and leaderboard records"
+    }
+  }
+}

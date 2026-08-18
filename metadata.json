@@ -1,0 +1,6 @@
+{
+  "name": "Prof IA Mali",
+  "description": "Professeur IA intelligent pour étudiants : résolution photo d'exercices étape par étape, examens blancs avec classement, quiz et tutorat multi-matières.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
